@@ -79,7 +79,9 @@ class IMGD_Propiedades {
 
         //add_action( 'init', array ($this, 'imgd_propiedades_servicios'));
 
-        /* Define las Metaboxes */
+        /* Define las Metaboxes
+        * @TODO ver de generar algún tipo de aviso de la dependencia del Meta Box posiblemente haya que pasar toda la definición a la clase del admin
+        */
         if (class_exists('RW_Meta_Box')) {
             add_filter( 'rwmb_meta_boxes', array ($this, 'register_meta_boxes' ));
         }
@@ -422,7 +424,11 @@ class IMGD_Propiedades {
         register_taxonomy( 'prop_tipo', array( 'imgd_propiedad' ), $args );
 
     }
-
+    /*
+     * Register Meta Boxes
+     *
+     * @return array $meta_boxes
+     */
     public function register_meta_boxes(){
 
         /* * ******************* META BOX DEFINITIONS ********************** */
