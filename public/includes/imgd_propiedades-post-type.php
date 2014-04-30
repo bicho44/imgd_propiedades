@@ -45,7 +45,7 @@ function imgd_propiedades_create_taxonomies() {
     // Ciudad type
     register_taxonomy('prop_categoria', array('imgd_propiedades'), array(
         'hierarchical' => true,
-        'label' => 'Categoria',
+        'label' => 'Categorias',
         'singular_name' => 'Categoria',
         'show_ui' => true,
         'query_var' => true,
