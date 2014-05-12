@@ -16,12 +16,10 @@
  * If you're interested in introducing public-facing
  * functionality, then refer to `class-plugin-name.php`
  *
- * @TODO: Rename this class to a proper name for your plugin.
- *
- * @package Plugin_Name_Admin
- * @author  Your Name <email@example.com>
+ * @package IMGD_Propiedades_Admin
+ * @author  Federico Reinoso <admin@imgdigital.com.ar>
  */
-class Plugin_Name_Admin {
+class IMGD_Propiedades_Admin {
 
 	/**
 	 * Instance of this class.
@@ -66,7 +64,7 @@ class Plugin_Name_Admin {
 		 * - Rename "Plugin_Name" to the name of your initial plugin class
 		 *
 		 */
-		$plugin = Plugin_Name::get_instance();
+		$plugin = IMGD_Propiedades::get_instance();
 		$this->plugin_slug = $plugin->get_plugin_slug();
 
 		// Load admin style sheet and JavaScript.
@@ -136,7 +134,9 @@ class Plugin_Name_Admin {
 
 		$screen = get_current_screen();
 		if ( $this->plugin_screen_hook_suffix == $screen->id ) {
-			wp_enqueue_style( $this->plugin_slug .'-admin-styles', plugins_url( 'assets/css/admin.css', __FILE__ ), array(), Plugin_Name::VERSION );
+            wp_enqueue_style( $this->plugin_slug . '-plugin-styles' , plugins_url( '/assets/css/admin.css', __FILE__ ), array(), self::VERSION);
+
+            wp_enqueue_style( $this->plugin_slug .'-admin-styles', plugins_url( 'assets/css/admin.css', __FILE__ ), array(), Plugin_Name::VERSION );
 		}
 
 	}
@@ -187,8 +187,8 @@ class Plugin_Name_Admin {
 		 *   For reference: http://codex.wordpress.org/Roles_and_Capabilities
 		 */
 		$this->plugin_screen_hook_suffix = add_options_page(
-			__( 'Page Title', $this->plugin_slug ),
-			__( 'Menu Text', $this->plugin_slug ),
+			__( 'Propiedades', $this->plugin_slug ),
+			__( 'Propiedad', $this->plugin_slug ),
 			'manage_options',
 			$this->plugin_slug,
 			array( $this, 'display_plugin_admin_page' )

@@ -44,7 +44,7 @@ class IMGD_Propiedades {
      *
      * @var      string
      */
-    protected $plugin_slug = 'imgd-propiedades';
+    protected $plugin_slug = 'imgd_propiedades';
 
     /**
      * Instance of this class.
@@ -71,6 +71,7 @@ class IMGD_Propiedades {
 
         // Load public-facing style sheet and JavaScript.
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+        add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
         /* Define la Custom Post Type */
@@ -266,12 +267,12 @@ class IMGD_Propiedades {
         $labels = array(
             'name'                => _x( $name, 'Post Type General Name', 'imgd' ),
             'singular_name'       => _x( $name_sing, 'Post Type Singular Name', 'imgd' ),
-            'menu_name'           => __( $name_sing, 'imgd' ),
+            'menu_name'           => __( $name, 'imgd' ),
             'parent_item_colon'   => __( $name_sing.' Pariente:', 'imgd' ),
-            'all_items'           => __( 'Todas las '.$name_sing, 'imgd' ),
+            'all_items'           => __( 'Todas las '.$name, 'imgd' ),
             'view_item'           => __( 'Ver '.$name_sing, 'imgd' ),
             'add_new_item'        => __( 'Agregue un nueva '.$name_sing, 'imgd' ),
-            'add_new'             => __( 'Nuevo '.$name_sing, 'imgd' ),
+            'add_new'             => __( 'Nueva '.$name_sing, 'imgd' ),
             'edit_item'           => __( 'Editar '.$name_sing, 'imgd' ),
             'update_item'         => __( 'Actualizar '.$name_sing, 'imgd' ),
             'search_items'        => __( 'Buscar '.$name_sing, 'imgd' ),
@@ -286,10 +287,10 @@ class IMGD_Propiedades {
         );
         $args = array(
             'label'               => __( $name_sing, 'imgd' ),
-            'description'         => __( 'Descripcion de cada '.$name_sing, 'imgd' ),
+            'description'         => __( 'Descripción de cada '.$name_sing, 'imgd' ),
             'labels'              => $labels,
             'supports'            => array( 'title', 'editor', 'thumbnail', 'page-attributes', ),
-            'taxonomies'          => array( 'categoria', 'servicios' ),
+            'taxonomies'          => array( 'categoria', 'servicios', 'tipo' ),
             'hierarchical'        => true,
             'public'              => true,
             'show_ui'             => true,
@@ -297,7 +298,7 @@ class IMGD_Propiedades {
             'show_in_nav_menus'   => true,
             'show_in_admin_bar'   => true,
             'menu_position'       => 5,
-            'menu_icon'           => plugins_url('assets/icono.png', __FILE__ ),
+            'menu_icon'           => 'dashicons-admin-network',
             'can_export'          => true,
             'has_archive'         => true,
             'exclude_from_search' => false,
@@ -805,7 +806,21 @@ class IMGD_Propiedades {
      * @since    1.0.0
      */
     public function enqueue_styles() {
-        wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'assets/css/public.css', __FILE__ ), array(), self::VERSION );
+
+
+        //wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'assets/css/public.css', __FILE__ ), array(), self::VERSION );
+    }
+
+    /**
+     * Register and enqueue public-facing style sheet.
+     *
+     * @since    1.0.0
+     */
+    public function enqueue_admin_styles() {
+
+        wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'assets/css/admin.css', __FILE__ ), array(), self::VERSION );
+
+        //wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'assets/css/public.css', __FILE__ ), array(), self::VERSION );
     }
 
     /**

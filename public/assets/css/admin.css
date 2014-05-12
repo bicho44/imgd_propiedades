@@ -1,0 +1,50 @@
+/* =Styles for 'normal' meta boxes
+-------------------------------------------------------------- */
+.inside:before,
+.inside:after {
+  content: " ";
+  display: table;
+}
+.inside:after {
+  clear: both;
+}
+.rwmb-checkbox_list-wrapper {
+  width: 50%;
+  float: left;
+}
+.rwmb-label {
+  font-weight: bold;
+}
+.widefat .column-imagen {
+  width: 4em;
+}
+.widefat .column-cod {
+  width: 2em;
+}
+.widefat .column-hom,
+.widefat .column-des {
+  width: 1.2em;
+}
+.widefat .des,
+.widefat .hom {
+  padding-top: 20px;
+  color: #262;
+  font-size: 1.8em;
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: inherit;
+}
+.widefat .column-description {
+  width: 24em;
+}
+.widefat .column-ciudad {
+  width: 8em;
+}
+.widefat .column-tipo {
+  width: 4em;
+}
+.widefat .column-precio {
+  width: 7em;
+  text-align: right;
+}

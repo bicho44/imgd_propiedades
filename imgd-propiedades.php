@@ -18,7 +18,7 @@
  * Version:           1.0.0
  * Author:            Federico Reinoso
  * Author URI:        http://about.me/bicho44
- * Text Domain:       imgdigital
+ * Text Domain:       imgd_propiedades
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path:       /languages
@@ -76,7 +76,7 @@ add_action( 'plugins_loaded', array( 'IMGD_Propiedades', 'get_instance' ) );
  */
 /*if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
 
-	require_once( plugin_dir_path( __FILE__ ) . 'admin/class-plugin-name-admin.php' );
-	add_action( 'plugins_loaded', array( 'Plugin_Name_Admin', 'get_instance' ) );
+	require_once( plugin_dir_path( __FILE__ ) . 'admin/class-imgd_propiedades-admin.php' );
+	add_action( 'plugins_loaded', array( 'IMGD_Propiedades_Admin', 'get_instance' ) );
 
 }*/
