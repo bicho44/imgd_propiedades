@@ -464,7 +464,7 @@ class IMGD_Propiedades {
                     // Field name - Will be used as label
                     'name' => __('Home Page', 'imgd_framework'),
                     // Field ID, i.e. the meta key
-                    'id' => 'imgd_slideshow',
+                    'id' => 'imgd_home',
                     // Field description (optional)
                     'desc' => __('Se muestra en la Home Page en el Slide Show', 'imgd_framework'),
                     // CLONES: Add to make the field cloneable (i.e. have multiple value)
@@ -619,31 +619,10 @@ class IMGD_Propiedades {
             )
         );
 
-        $meta_boxes[] = array(
-            'id' => 'mapa',
-            'pages' => array('imgd_propiedad'),
-            'title' => 'Google Map',
-            'fields' => array(
-                array(
-                    'id' => 'address',
-                    'name' => 'Dirección',
-                    'type' => 'text',
-                    'std' => 'San Carlos de Bariloche, Argentina',
-                ),
-                array(
-                    'id' => 'loc',
-                    'name' => 'Ubicación',
-                    'type' => 'map',
-                    'std' => '-41.1334722,-71.3102778, 15', // 'latitude,longitude[,zoom]' (zoom is optional)
-                    'style' => 'width: 500px; height: 300px',
-                    'address_field' => 'address', // Name of text field where address is entered. Can be list of text fields, separated by commas (for ex. city, state)
-                ),
-            ),
-        );
 
         $meta_boxes[] = array(
             'id' => 'info-propiedad',
-            'title' => 'Información de la Propiedad',
+            'title' => __('Información de la Propiedad', 'imgdigital'),
             'pages' => array('imgd_propiedad'),
             // Order of meta box: high (default), low. Optional.
             'priority' => 'high',
@@ -699,6 +678,7 @@ class IMGD_Propiedades {
                         'parque' => 'Parque',
                         'jardinero' => 'Jardinero',
                         'Servicio de mucama diario' => 'Servicio de mucama diario',
+                        'Servicio de Blanco' => 'Servicio de Blanco',
                         'escritorio' => 'Escritorio',
                         'lavadero' => 'Lavadero',
                         'vestidor' => 'Vestidor',
@@ -769,6 +749,28 @@ class IMGD_Propiedades {
                     )
                 ),
             )
+        );
+
+        $meta_boxes[] = array(
+            'id' => 'mapa',
+            'pages' => array('imgd_propiedad'),
+            'title' => __('Mapa de Ubicación','imgdigital'),
+            'fields' => array(
+                array(
+                    'id' => 'address',
+                    'name' => __('Dirección','imgdigital'),
+                    'type' => 'text',
+                    'std' => 'San Carlos de Bariloche, Argentina',
+                ),
+                array(
+                    'id' => 'loc',
+                    'name' => __('Ubicación','imgdigital'),
+                    'type' => 'map',
+                    'std' => '-41.1334722,-71.3102778, 15', // 'latitude,longitude[,zoom]' (zoom is optional)
+                    'style' => 'width: 500px; height: 300px',
+                    'address_field' => 'address', // Name of text field where address is entered. Can be list of text fields, separated by commas (for ex. city, state)
+                ),
+            ),
         );
 
         /* * ******************* META BOX REGISTERING ********************** */
@@ -859,3 +861,4 @@ class IMGD_Propiedades {
     }
 
 }
+include_once ('includes/helper.php');
