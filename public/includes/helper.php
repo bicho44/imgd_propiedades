@@ -6,7 +6,6 @@
  * @return string Un párrafo con los datos de la Propiedad
  */
 
-
 function imgd_propiedad_datos($archive = 0) {
     $datos = '';
 
@@ -41,7 +40,8 @@ function imgd_propiedad_datos($archive = 0) {
     }
 
     if ($archive === 0) {
-        $datos .= '<br>' . substr(strip_tags(get_the_content()), 0, 50);
+	    if($datos!=='') $datos.='<br>'; // Si datos está vacío no necesito el renglón extra.
+        $datos .= substr(strip_tags(get_the_content()), 0, 50);
     }
     return $datos;
 }
