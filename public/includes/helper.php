@@ -45,3 +45,16 @@ function imgd_propiedad_datos($archive = 0) {
     }
     return $datos;
 }
+
+// Require the new class (change to your correct path)
+if ( !class_exists( 'Gamajo_Dashboard_Glancer' ) ) {
+	require ('class-gamajo-dashboard-glancer.php');
+
+	// Hook into the widget (or any hook before it!) to register your items.
+	add_action( 'dashboard_glance_items', 'imgd_propiedades_dashboard_counts' );
+	function imgd_propiedades_dashboard_counts() {
+		$glancer = new Gamajo_Dashboard_Glancer;
+		$glancer->add( 'imgd_propiedad' ); // show only published "my-cpt" entries
+	}
+}
+

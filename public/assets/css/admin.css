@@ -730,6 +730,10 @@ ul.icons li .icon-large:before {
 .rwmb-label {
   font-weight: bold;
 }
+#dashboard_right_now .imgd_propiedad-count a:before,
+#dashboard_right_now .imgd_propiedad-count span:before {
+  content: "\f112";
+}
 .widefat .column-imagen {
   width: 4em;
 }
