@@ -49,5 +49,6 @@ node_modules
 dist
 
 codekit-config.json
+config.codekit
 
 inc/meta-box
